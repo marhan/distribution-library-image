@@ -8,6 +8,7 @@ if [ $# -eq 0 ] ; then
 fi
 
 VERSION=$1
+TMPDIR=/tmp
 
 # cd to the current directory so the script can be run from anywhere.
 cd `dirname $0`
