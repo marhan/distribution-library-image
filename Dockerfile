@@ -1,6 +1,6 @@
 # Build a minimal distribution container
 
-FROM ubuntu:14.04
+FROM scaleway/ubuntu:14.04
 
 RUN apt-get update && \
     apt-get install -y ca-certificates librados2 apache2-utils && \
