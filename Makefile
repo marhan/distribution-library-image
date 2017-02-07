@@ -1,6 +1,8 @@
 DOCKER_IMAGE_VERSION=latest
 DOCKER_IMAGE_NAME=marhan/rpi-registry
 DOCKER_IMAGE_TAGNAME=$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
+PRIVATE_DOCKER_REGISTRY=store:5000
+PRIVATE_DOCKER_IMAGE_TAGNAME=$(PRIVATE_DOCKER_REGISTRY)/$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 default: build
 
@@ -10,5 +12,8 @@ build:
 push:
 	docker push $(DOCKER_IMAGE_NAME)
 
-push-private:
-	docker push store:5000/$(DOCKER_IMAGE_NAME)
+private-build:
+	docker build -t $(PRIVATE_DOCKER_IMAGE_TAGNAME) .
+
+private-push:
+	docker push $(PRIVATE_DOCKER_IMAGE_TAGNAME)
