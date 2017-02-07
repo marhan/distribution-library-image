@@ -9,3 +9,6 @@ build:
 
 push:
 	docker push $(DOCKER_IMAGE_NAME)
+
+push-private:
+	docker push store:5000/$(DOCKER_IMAGE_NAME)
